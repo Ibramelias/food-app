@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useBag } from '../context/BagContext';
+import { useAuth } from '../context/AuthContext';
 import { getItemImage } from '../data/restaurants';
 import './Bag.css';
 
 function Bag() {
   const { items, updateQuantity, removeFromBag, totalItems, totalPrice } = useBag();
+  const { isAuthenticated } = useAuth();
 
   if (items.length === 0) {
     return (
@@ -12,7 +14,9 @@ function Bag() {
         <header className="bag-header">
           <Link to="/" className="bag-back">← Back</Link>
           <h1 className="bag-title">Your Bag</h1>
-          <div className="bag-placeholder" />
+          <Link to={isAuthenticated ? '/profile' : '/signin'} className="bag-profile-link">
+            {isAuthenticated ? '👤' : 'Sign in'}
+          </Link>
         </header>
         <div className="bag-empty">
           <p className="bag-empty-icon">🛒</p>
@@ -29,7 +33,12 @@ function Bag() {
       <header className="bag-header">
         <Link to="/" className="bag-back">← Back</Link>
         <h1 className="bag-title">Your Bag</h1>
-        <span className="bag-count">{totalItems} {totalItems === 1 ? 'item' : 'items'}</span>
+        <div className="bag-header-right">
+          <Link to={isAuthenticated ? '/profile' : '/signin'} className="bag-profile-link">
+            {isAuthenticated ? '👤' : 'Sign in'}
+          </Link>
+          <span className="bag-count">{totalItems} {totalItems === 1 ? 'item' : 'items'}</span>
+        </div>
       </header>
 
       <div className="bag-content">
