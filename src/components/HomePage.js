@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
 import { restaurants } from '../data/restaurants';
+import { useBag } from '../context/BagContext';
 import './HomePage.css';
 
 function HomePage() {
+  const { totalItems } = useBag();
+
   return (
     <div className="home-page">
       <header className="home-header">
+        <Link to="/bag" className="home-bag-link" aria-label="View bag">
+          🛒 {totalItems > 0 && <span className="home-bag-badge">{totalItems}</span>}
+        </Link>
         <h1 className="app-name">Foodie</h1>
         <p className="app-tagline">Discover restaurants near you</p>
       </header>

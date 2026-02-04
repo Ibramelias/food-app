@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap');
+
+.bag-page {
+  min-height: 100vh;
+  background: linear-gradient(165deg, #f8f4ed 0%, #ebe4d8 100%);
+  font-family: 'Outfit', sans-serif;
+  padding-bottom: max(8rem, calc(env(safe-area-inset-bottom) + 6rem));
+}
+
+.bag-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  background: white;
+  box-shadow: 0 2px 12px rgba(45, 41, 38, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.bag-back {
+  color: #c45c3e;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.bag-back:hover {
+  text-decoration: underline;
+}
+
+.bag-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #2d2926;
+  margin: 0;
+}
+
+.bag-placeholder {
+  width: 60px;
+}
+
+.bag-count {
+  font-size: 0.9rem;
+  color: #5c554d;
+}
+
+.bag-empty {
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.bag-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.bag-empty h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  color: #2d2926;
+  margin: 0 0 0.5rem;
+}
+
+.bag-empty p {
+  color: #5c554d;
+  margin: 0 0 1.5rem;
+}
+
+.bag-browse-btn {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #c45c3e 0%, #a84a32 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform 0.15s ease;
+}
+
+.bag-browse-btn:hover {
+  transform: translateY(-2px);
+}
+
+.bag-content {
+  padding: 1.25rem 1.25rem 0;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.bag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.bag-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 12px rgba(45, 41, 38, 0.06);
+  border: 1px solid rgba(196, 92, 62, 0.1);
+}
+
+.bag-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.bag-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.bag-item-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2d2926;
+  margin: 0 0 0.2rem;
+}
+
+.bag-item-restaurant {
+  font-size: 0.85rem;
+  color: #5c554d;
+  margin: 0 0 0.5rem;
+}
+
+.bag-item-custom {
+  font-size: 0.8rem;
+  color: #c45c3e;
+  font-style: italic;
+  margin: 0 0 0.5rem;
+}
+
+.bag-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.bag-qty-controls {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d4cdc4;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #faf8f5;
+}
+
+.bag-qty-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  color: #2d2926;
+  cursor: pointer;
+}
+
+.bag-qty-btn:hover {
+  background: #ebe4d8;
+}
+
+.bag-qty-val {
+  min-width: 32px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.bag-item-price {
+  font-weight: 600;
+  color: #c45c3e;
+}
+
+.bag-remove {
+  background: none;
+  border: none;
+  color: #c45c3e;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bag-remove:hover {
+  text-decoration: underline;
+}
+
+.bag-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  background: white;
+  box-shadow: 0 -4px 20px rgba(45, 41, 38, 0.08);
+}
+
+.bag-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.bag-checkout-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #d4cdc4;
+  color: #5c554d;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+@media (min-width: 500px) {
+  .bag-footer {
+    max-width: 560px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

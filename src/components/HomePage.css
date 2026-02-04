@@ -13,6 +13,38 @@
   background: linear-gradient(135deg, #c45c3e 0%, #a84a32 100%);
   color: white;
   box-shadow: 0 4px 20px rgba(164, 74, 50, 0.3);
+  position: relative;
+}
+
+.home-bag-link {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.35rem;
+  opacity: 0.95;
+}
+
+.home-bag-link:hover {
+  opacity: 1;
+}
+
+.home-bag-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: white;
+  color: #c45c3e;
+  font-size: 0.7rem;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
 }
 
 .app-name {

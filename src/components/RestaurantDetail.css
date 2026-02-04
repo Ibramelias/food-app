@@ -16,9 +16,45 @@
   box-shadow: 0 4px 20px rgba(164, 74, 50, 0.3);
 }
 
+.detail-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.bag-link {
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  position: relative;
+  opacity: 0.95;
+}
+
+.bag-link:hover {
+  opacity: 1;
+}
+
+.bag-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: white;
+  color: #c45c3e;
+  font-size: 0.7rem;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
 .back-button {
   display: inline-block;
-  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   color: white;
   text-decoration: none;
@@ -75,6 +111,12 @@
   margin: 0;
 }
 
+.menu-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .menu-item {
   display: flex;
   justify-content: space-between;
@@ -86,9 +128,17 @@
   margin-bottom: 0.75rem;
   box-shadow: 0 2px 12px rgba(45, 41, 38, 0.06);
   border: 1px solid rgba(196, 92, 62, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
 }
 
-.menu-item:last-child {
+.menu-item-link:hover .menu-item,
+.menu-item-link:focus .menu-item {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(45, 41, 38, 0.12);
+}
+
+.menu-item-link:last-child .menu-item {
   margin-bottom: 0;
 }
 
