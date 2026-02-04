@@ -6,7 +6,7 @@ import './HomePage.css';
 
 function HomePage() {
   const { totalItems } = useBag();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, currentUser } = useAuth();
 
   return (
     <div className="home-page">
@@ -17,7 +17,7 @@ function HomePage() {
             className="home-profile-link"
             aria-label={isAuthenticated ? 'Profile' : 'Sign in'}
           >
-            {isAuthenticated ? '👤 Profile' : 'Sign in'}
+            {isAuthenticated ? `Hi, ${currentUser?.name || 'User'}` : 'Sign in'}
           </Link>
           <Link to="/bag" className="home-bag-link" aria-label="View bag">
             🛒 {totalItems > 0 && <span className="home-bag-badge">{totalItems}</span>}

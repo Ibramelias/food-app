@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { restaurants, getItemImage } from '../data/restaurants';
 import { useBag } from '../context/BagContext';
+import { useAuth } from '../context/AuthContext';
 import './ItemDetail.css';
 
 function ItemDetail() {
   const { restId, itemId } = useParams();
   const navigate = useNavigate();
   const { addToBag, totalItems } = useBag();
+  const { isAuthenticated } = useAuth();
   const [quantity, setQuantity] = useState(1);
   const [customizations, setCustomizations] = useState('');
   const [showCustomize, setShowCustomize] = useState(false);
@@ -27,6 +29,10 @@ function ItemDetail() {
   }
 
   const handleAddToBag = () => {
+    if (!isAuthenticated) {
+      navigate('/signin');
+      return;
+    }
     addToBag(item, restaurant, quantity, customizations);
     navigate('/bag');
   };
@@ -115,7 +121,7 @@ function ItemDetail() {
           className="add-to-bag-btn"
           onClick={handleAddToBag}
         >
-          Add to bag
+          {isAuthenticated ? 'Add to bag' : 'Sign in to add to bag'}
         </button>
       </div>
     </div>

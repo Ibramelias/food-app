@@ -6,7 +6,7 @@ import './Bag.css';
 
 function Bag() {
   const { items, updateQuantity, removeFromBag, totalItems, totalPrice } = useBag();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, currentUser } = useAuth();
 
   if (items.length === 0) {
     return (
@@ -15,7 +15,7 @@ function Bag() {
           <Link to="/" className="bag-back">← Back</Link>
           <h1 className="bag-title">Your Bag</h1>
           <Link to={isAuthenticated ? '/profile' : '/signin'} className="bag-profile-link">
-            {isAuthenticated ? '👤' : 'Sign in'}
+            {isAuthenticated ? (currentUser?.name || 'Profile') : 'Sign in'}
           </Link>
         </header>
         <div className="bag-empty">
@@ -35,7 +35,7 @@ function Bag() {
         <h1 className="bag-title">Your Bag</h1>
         <div className="bag-header-right">
           <Link to={isAuthenticated ? '/profile' : '/signin'} className="bag-profile-link">
-            {isAuthenticated ? '👤' : 'Sign in'}
+            {isAuthenticated ? (currentUser?.name || 'Profile') : 'Sign in'}
           </Link>
           <span className="bag-count">{totalItems} {totalItems === 1 ? 'item' : 'items'}</span>
         </div>
